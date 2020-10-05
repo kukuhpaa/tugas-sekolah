@@ -1,11 +1,337 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     
-</body>
+    <title>PENYEWAAN PERANGKAT GAME</title>
+    <style>
+     .container{
+    width: 1500px;
+}
+
+.navbar-brand, .nav-link{
+    color:white !important;
+    
+}
+.navbar-brand{
+    font-size: 25px;
+}
+.nav-link{
+    font-size: 12px;
+    margin-right: 12px;
+    margin-top: -40px;
+}
+
+.padding{
+    margin-top: 10px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    
+    margin-top: 6px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card-title{
+    font-size: 13px;
+}
+.card-text{
+    font-size: 13px;
+}
+span{
+    font-size: 14px;
+    color: red;
+}
+del{
+    color: rgb(154, 154, 154);
+}
+    </style>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Warnet Gaming</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link mt-1" href="#">Tentang Kami</a>
+            <a class="nav-link mt-1" href="#">Lokasi</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+  <div class="container mt-4">   
+    <h6 class="container-fluid fontbaru p-2 mb-3"  style="background-color:#0865c0; color: #ffffff; height: 35px;">Gaming Tools Kami</h6>
+      <div class="row">
+        <div class="col-2 pr-2">
+          <div class="card" style="width: 12rem;height: 15rem; ">
+            <br>
+            <img src="pc2.jpg"  class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-title text-center">PC Gaming AMD RYZEN 9 with NVIDIA RTX 3090</p>
+              <p class="card-text text-center"><del>Rp 15,000</del> <span>Rp12,000</span></p>
+             
+            </div>
+          </div>
+        </div>
+        &emsp;
+        <div class="col-2 pr-2">
+          <div class="card" style="width: 12rem;height: 15rem; ">
+            <br>
+            <img src="pc1.jpg"  class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-title text-center">PC Gaming Intel core i9 with NVIDIA RTX 3090</p>
+              <p class="card-text text-center"><del>Rp 15,000</del> <span>Rp12,000</span></p>
+             
+            </div>
+          </div>
+        </div>
+        &emsp;
+        <div class="col-2 pr-2">
+          <div class="card" style="width: 12rem; height: 15rem;">
+            <br>
+            <img src="xbox.jpg"  class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-title text-center">X-Box series</p>
+              <p class="card-text text-center"><del>RP 30,000</del> <span>Rp24,000</span></p>
+              
+            </div>
+          </div>
+        </div>
+        &emsp;
+        <div class="col-2 pr-2">
+          <div class="card" style="width: 12rem; height: 15rem;">
+            <br>
+            <img src="laptop.jpg"  class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-title text-center">Laptop Gaming</p>
+              <p class="card-text text-center"><del>RP 15,000</del> <span>Rp12,000</span></p>
+              
+            </div>
+          </div>
+        </div>
+        &emsp;
+        <div class="col-2 pr-2">
+          <div class="card" style="width: 12rem; height: 15rem;">
+            <br>
+            <img src="ps5.jpg"  class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-title text-center">PS 5</p>
+              <p class="card-text text-center"><del>Rp30,000</del> <span>Rp24,000</span></p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <br>  
+
+
+<form class="container"name="form" onchange="hitungtotal()">
+  <h6 class="container-fluid fontbaru p-2 mb-3"  style="background-color:#0865c0; color: #ffffff; height: 35px;">Formulir Penyewaan</h6>
+
+  <div class="form-group">
+    <label for="nama">Nama</label>
+    <input type="text" class="form-control" name="inama" size="25" placeholder="Nama Anda.." id="txt_nama">
+  </div>
+      
+  <label for="gaming" >Gaming Tools</label>
+    
+    <select class="form-control" name="itujuan" id="txt_gaming" >
+      <option value="keyboard">PC Gaming Intel core i9 with NVIDIA RTX 3090</option>
+      <option value="keyboard">PC Gaming Intel core i9 with NVIDIA RTX 3090</option>
+      <option value="keyboard">Laptop Gaming</option>
+      <option value="console">X-Box Series</option>
+      <option value="console">PS 5</option>
+    </select>
+    
+  <label for="jumlah">Lama Menyewa</label>
+  
+  <select class="form-control" name="ijumlah" id="txt_jumlah" >
+    <option value="1jam">1 jam</option>
+    <option value="2jam">2 jam</option>
+    <option value="3jam">3 jam</option>
+    <option value="4jam">4 jam</option>
+    <option value="5jam">5 jam</option>
+  </select>
+        
+  <input type="checkbox" name="imamber">Diskon
+    <br>
+  <label for="harga">Harga</label>
+  <input type="text" class="form-control" size="10" name="otiket"id="txt_harga">
+    
+  
+  <label for="total">Total Bayar</label>	
+  <input type="text" class="form-control" size="10" name="osub"id="txt_total">
+  
+  <label for="diskon">Diskon</label>	
+  <input type="text" class="form-control" size="10" name="odiskon"id="txt_diskon">
+  
+  <label for="bayar">Total Bayar</label>
+    
+    <input type="text"  class="form-control" name="ototal" id="txt_bayar"> 
+    
+    <button class="btn btn-primary mt-4" onclick="add()">Simpan</button>
+</form>
+
+</div>
+
+<div class="container mt-4">
+<table class="table table-bordered">
+  <thead class="table-secondary">
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nama</th>
+      <th scope="col">gaming Tools</th>
+      <th scope="col">lama sewa</th>
+      <th scope="col">harga</th>
+      <th scope="col">total</th>
+      <th scope="col">diskon</th>
+      <th scope="col">bayar</th>
+      
+    </tr>
+  </thead>
+  <tbody id="tampildata">
+  </tbody>
+</table>
+</div>
+
+ 
+  
+   
+</div>
+
+<footer>
+  <div class="card text-white bg-dark">
+      <div class="card-header">Warnet Gaming</div>
+      <div class="card-body">
+        <h5 class="card-title text-white bg-dark border-dark">Hubungi</h5>
+        <ul>
+        <li><a>Net Gaming</a></li>
+        <li><a class="" href="https://www.instagram.com/kukuhpradypta.a.a"><img src="ig.jpg" width="20" height="20" alt="" class="rounded">INSTAGRAM</a></li>
+        </ul>
+        
+      </div>
+    </div>
+</footer>
+
+  <script>
+        var nama= ["kukuh"]
+        var gaming = ["PS 5"]
+        var jumlah = ["1"]
+        var harga = ["30000"]
+        var total = ["30000"]
+        var diskon = ["6000"]
+        var bayar = ["24000"]
+
+        var tampil = document.getElementById('tampildata')
+
+        function showData() {
+            tampil.innerHTML = ""
+
+            for(i = 0; i<nama.length; i++){
+                nodata = i+1
+                tampil.innerHTML += "<tr>"+
+                "<th>"+nodata+"</th>"+
+                "<td>"+nama[i]+"</td>"+
+                "<td>"+gaming[i]+"</td>"+
+                "<td>"+jumlah[i]+"</td>"+
+                "<td>"+harga[i]+"</td>"+
+                "<td>"+total[i]+"</td>"+
+                "<td>"+diskon[i]+"</td>"+
+                "<td>"+bayar[i]+"</td>"+
+                "</tr>"
+            }
+        }     
+      showData ()
+      
+      function add() {
+        var namabaru = document.getElementById('txt_nama').value
+        var gamingbaru = document.getElementById('txt_gaming').value
+        var jumlahbaru = document.getElementById('txt_jumlah').value
+        var hargabaru = document.getElementById('txt_harga').value
+        var totalbaru = document.getElementById('txt_total').value
+        var diskonbaru = document.getElementById('txt_diskon').value
+        var bayarbaru = document.getElementById('txt_bayar').value
+        
+        nama.push(namabaru)
+        gaming.push(gamingbaru)
+        jumlah.push(jumlahbaru)
+        harga.push(hargabaru)
+        total.push(totalbaru)
+        diskon.push(diskonbaru)
+        bayar.push(bayarbaru)
+        showData()
+      }
+
+
+function hitungtotal(){
+
+var nama = (document.form.inama.value);
+var tujuan = (document.form.itujuan.value);
+var jumlahsewa = parseFloat (document.form.ijumlah.value);
+var ht = 0.0 ;
+var sub = 0.0;
+var diskon = 0.0;
+var total = 0.0;
+if (tujuan == "keyboard") {
+
+    ht = 15000;
+}
+else if(tujuan == "console")
+{
+    ht = 30000;
+}
+else
+{
+    ht = 30000;
+}
+
+
+sub = jumlahsewa*ht;
+
+if (document.form.imamber.checked == true) 
+{
+    diskon = 0.20 * sub;
+}
+else
+{
+    diskon=0.15;
+}
+total = sub - diskon;
+document.form.otiket.value=eval(ht);
+document.form.osub.value=eval(sub);
+document.form.odiskon.value=eval(diskon);
+document.form.ototal.value=eval(total);
+}
+
+	
+  </script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
 </html>
