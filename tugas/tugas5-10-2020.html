@@ -29,7 +29,15 @@
     margin-right: 12px;
     margin-top: -40px;
 }
-
+.jumbotron{
+    height: 500px;
+    background-image: url(img1/flashsale_slider_desk_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    
+}
 .padding{
     margin-top: 10px;
 }
@@ -49,6 +57,8 @@
 .card-text{
     font-size: 13px;
 }
+
+
 span{
     font-size: 14px;
     color: red;
@@ -56,10 +66,12 @@ span{
 del{
     color: rgb(154, 154, 154);
 }
+
+
+
+
     </style>
-
   </head>
-
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
@@ -77,7 +89,11 @@ del{
     </nav>
 
 
-  <div class="container mt-4">   
+    
+
+<!-- produk -->
+  <div class="container mt-4">
+    
     <h6 class="container-fluid fontbaru p-2 mb-3"  style="background-color:#0865c0; color: #ffffff; height: 35px;">Gaming Tools Kami</h6>
       <div class="row">
         <div class="col-2 pr-2">
@@ -144,8 +160,7 @@ del{
   
   <br>  
 
-
-<form class="container"name="form" onchange="hitungtotal()">
+<form class="container"name="form" onchange="hitungtotal()" onsubmit="event.preventDefault()">
   <h6 class="container-fluid fontbaru p-2 mb-3"  style="background-color:#0865c0; color: #ffffff; height: 35px;">Formulir Penyewaan</h6>
 
   <div class="form-group">
@@ -156,26 +171,26 @@ del{
   <label for="gaming" >Gaming Tools</label>
     
     <select class="form-control" name="itujuan" id="txt_gaming" >
-      <option value="keyboard">PC Gaming Intel core i9 with NVIDIA RTX 3090</option>
-      <option value="keyboard">PC Gaming Intel core i9 with NVIDIA RTX 3090</option>
-      <option value="keyboard">Laptop Gaming</option>
-      <option value="console">X-Box Series</option>
-      <option value="console">PS 5</option>
+      <option value="PC Gaming Intel i9">PC Gaming Intel core i9 with NVIDIA RTX 3090</option>
+      <option value="PC Gaming Ryzen 9">PC Gaming Ryzen 9 with NVIDIA RTX 3090</option>
+      <option value="Laptop Gaming">Laptop Gaming</option>
+      <option value="X-Box Series">X-Box Series</option>
+      <option value="PS 5">PS 5</option>
     </select>
     
   <label for="jumlah">Lama Menyewa</label>
   
   <select class="form-control" name="ijumlah" id="txt_jumlah" >
-    <option value="1jam">1 jam</option>
-    <option value="2jam">2 jam</option>
-    <option value="3jam">3 jam</option>
-    <option value="4jam">4 jam</option>
-    <option value="5jam">5 jam</option>
+    <option value="1 jam">1 jam</option>
+    <option value="2 jam">2 jam</option>
+    <option value="3 jam">3 jam</option>
+    <option value="4 jam">4 jam</option>
+    <option value="5 jam">5 jam</option>
   </select>
         
   <input type="checkbox" name="imamber">Diskon
     <br>
-  <label for="harga">Harga</label>
+  <label for="harga">Harga Perjam</label>
   <input type="text" class="form-control" size="10" name="otiket"id="txt_harga">
     
   
@@ -202,7 +217,6 @@ del{
       <th scope="col">Nama</th>
       <th scope="col">gaming Tools</th>
       <th scope="col">lama sewa</th>
-      <th scope="col">harga</th>
       <th scope="col">total</th>
       <th scope="col">diskon</th>
       <th scope="col">bayar</th>
@@ -212,11 +226,6 @@ del{
   <tbody id="tampildata">
   </tbody>
 </table>
-</div>
-
- 
-  
-   
 </div>
 
 <footer>
@@ -232,12 +241,16 @@ del{
       </div>
     </div>
 </footer>
+  
+   
+</div>
+
+  <!-- akhir formulir -->
 
   <script>
         var nama= ["kukuh"]
         var gaming = ["PS 5"]
-        var jumlah = ["1"]
-        var harga = ["30000"]
+        var jumlah = ["1 jam"]
         var total = ["30000"]
         var diskon = ["6000"]
         var bayar = ["24000"]
@@ -254,7 +267,6 @@ del{
                 "<td>"+nama[i]+"</td>"+
                 "<td>"+gaming[i]+"</td>"+
                 "<td>"+jumlah[i]+"</td>"+
-                "<td>"+harga[i]+"</td>"+
                 "<td>"+total[i]+"</td>"+
                 "<td>"+diskon[i]+"</td>"+
                 "<td>"+bayar[i]+"</td>"+
@@ -262,12 +274,10 @@ del{
             }
         }     
       showData ()
-      
       function add() {
         var namabaru = document.getElementById('txt_nama').value
         var gamingbaru = document.getElementById('txt_gaming').value
         var jumlahbaru = document.getElementById('txt_jumlah').value
-        var hargabaru = document.getElementById('txt_harga').value
         var totalbaru = document.getElementById('txt_total').value
         var diskonbaru = document.getElementById('txt_diskon').value
         var bayarbaru = document.getElementById('txt_bayar').value
@@ -275,7 +285,6 @@ del{
         nama.push(namabaru)
         gaming.push(gamingbaru)
         jumlah.push(jumlahbaru)
-        harga.push(hargabaru)
         total.push(totalbaru)
         diskon.push(diskonbaru)
         bayar.push(bayarbaru)
@@ -292,17 +301,25 @@ var ht = 0.0 ;
 var sub = 0.0;
 var diskon = 0.0;
 var total = 0.0;
-if (tujuan == "keyboard") {
+if (tujuan == "PC Gaming Intel i9") {
 
     ht = 15000;
 }
-else if(tujuan == "console")
+else if(tujuan == "PC Gaming Ryzen 9")
+{
+    ht = 15000;
+}
+else if(tujuan == "X-Box Series")
 {
     ht = 30000;
 }
-else
+else if(tujuan == "PS 5")
 {
     ht = 30000;
+}
+else if(tujuan == "Laptop Gaming")
+{
+    ht = 15000;
 }
 
 
