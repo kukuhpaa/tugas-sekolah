@@ -160,6 +160,12 @@ del{
   
   <br>  
 
+
+
+
+
+<!-- formulir pembelian -->
+
 <form class="container"name="form" onchange="hitungtotal()" onsubmit="event.preventDefault()">
   <h6 class="container-fluid fontbaru p-2 mb-3"  style="background-color:#0865c0; color: #ffffff; height: 35px;">Formulir Penyewaan</h6>
 
@@ -181,16 +187,16 @@ del{
   <label for="jumlah">Lama Menyewa</label>
   
   <select class="form-control" name="ijumlah" id="txt_jumlah" >
-    <option value="1 jam">1 jam</option>
-    <option value="2 jam">2 jam</option>
-    <option value="3 jam">3 jam</option>
-    <option value="4 jam">4 jam</option>
-    <option value="5 jam">5 jam</option>
+    <option value="1jam">1 jam</option>
+    <option value="2jam">2 jam</option>
+    <option value="3jam">3 jam</option>
+    <option value="4jam">4 jam</option>
+    <option value="5jam">5 jam</option>
   </select>
         
   <input type="checkbox" name="imamber">Diskon
     <br>
-  <label for="harga">Harga Perjam</label>
+  <label for="harga">Harga</label>
   <input type="text" class="form-control" size="10" name="otiket"id="txt_harga">
     
   
@@ -213,20 +219,86 @@ del{
 <table class="table table-bordered">
   <thead class="table-secondary">
     <tr>
+      <th style="color: yellow; margin: auto; background-color: gray;" colspan="5">ALERT : PESANAN YANG DI GANTI TIDAK MENDAPATKAN DISKON!, KECUALI PESAN ULANG!</th>
+      <th style="color: yellow; margin: auto; background-color: gray;" colspan="4">ALERT : UANG YANG SUDAH DI BERIKAN TIDAK DAPAT DI KEMBALIKAN!, KECUALI PERANGKAT BELUM DIGUNAKAN!</th>
+    </tr>
+    <tr style="background-color:SILVER;">
       <th scope="col">No</th>
       <th scope="col">Nama</th>
       <th scope="col">gaming Tools</th>
       <th scope="col">lama sewa</th>
+      <th scope="col">harga</th>
       <th scope="col">total</th>
       <th scope="col">diskon</th>
       <th scope="col">bayar</th>
-      
+      <th scope="col">action</th>
     </tr>
   </thead>
   <tbody id="tampildata">
   </tbody>
 </table>
 </div>
+
+
+
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" name="onama" size="25" placeholder="Nama Anda.." id="modalnama">
+          
+          <label for="gaming" >Gaming Tools</label>
+    
+          <select class="form-control" name="otujuan" id="modalgaming" >
+            <option value="PC Gaming Intel i9">PC Gaming Intel core i9 with NVIDIA RTX 3090</option>
+            <option value="PC Gaming Ryzen 9">PC Gaming Ryzen 9 with NVIDIA RTX 3090</option>
+            <option value="Laptop Gaming">Laptop Gaming</option>
+            <option value="X-Box Series">X-Box Series</option>
+            <option value="PS 5">PS 5</option>
+          </select>
+          
+        <label for="jumlah">Lama Menyewa</label>        
+        <select class="form-control" name="ojumlah" id="modaljumlah" >
+          <option value="1 jam">1 jam</option>
+          <option value="2 jam">2 jam</option>
+          <option value="3 jam">3 jam</option>
+          <option value="4 jam">4 jam</option>
+          <option value="5 jam">5 jam</option>
+        </select>
+              
+        <input type="checkbox" name="omamber">Diskon
+          <br>
+        <label for="harga">Harga Perjam</label>
+        <input type="text" class="form-control" size="10" name="itiket"id="modalharga">
+          
+        
+        <label for="total">Total Bayar</label>	
+        <input type="text" class="form-control" size="10" name="isub"id="modaltotal">
+        
+        <label for="diskon">Diskon</label>	
+        <input type="text" class="form-control" size="10" name="idiskon"id="modaldiskon">
+        
+        <label for="bayar">Total Bayar</label>
+          
+        <input type="text"  class="form-control" name="itotal" id="modalbayar"> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+          <button type="button" class="btn btn-primary" onclick="datasimpan()" data-dismiss="modal">Ganti</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>      
 
 <footer>
   <div class="card text-white bg-dark">
@@ -241,7 +313,6 @@ del{
       </div>
     </div>
 </footer>
-  
    
 </div>
 
@@ -251,6 +322,7 @@ del{
         var nama= ["kukuh"]
         var gaming = ["PS 5"]
         var jumlah = ["1 jam"]
+        var harga = ["30000"]
         var total = ["30000"]
         var diskon = ["6000"]
         var bayar = ["24000"]
@@ -267,9 +339,15 @@ del{
                 "<td>"+nama[i]+"</td>"+
                 "<td>"+gaming[i]+"</td>"+
                 "<td>"+jumlah[i]+"</td>"+
+                "<td>"+harga[i]+"</td>"+
                 "<td>"+total[i]+"</td>"+
                 "<td>"+diskon[i]+"</td>"+
                 "<td>"+bayar[i]+"</td>"+
+                "<td>" +
+                  "<button class='btn btn-warning' data-toggle='modal' data-target='#modal' onclick='editdata(" + i +
+                  ")'>Edit</button>" +
+                  "<button class='btn-danger btn' href='#' onclick='hapusdata(" + i + ")'>Hapus</button>" +
+                  "</td>" +
                 "</tr>"
             }
         }     
@@ -278,6 +356,7 @@ del{
         var namabaru = document.getElementById('txt_nama').value
         var gamingbaru = document.getElementById('txt_gaming').value
         var jumlahbaru = document.getElementById('txt_jumlah').value
+        var hargabaru = document.getElementById('txt_harga').value
         var totalbaru = document.getElementById('txt_total').value
         var diskonbaru = document.getElementById('txt_diskon').value
         var bayarbaru = document.getElementById('txt_bayar').value
@@ -285,14 +364,59 @@ del{
         nama.push(namabaru)
         gaming.push(gamingbaru)
         jumlah.push(jumlahbaru)
+        harga.push(hargabaru)
         total.push(totalbaru)
         diskon.push(diskonbaru)
         bayar.push(bayarbaru)
         showData()
       }
+      function hapusdata(i) {
+              nama.splice(i, 1);
+              gaming.splice(i, 1);
+              jumlah.splice(i, 1);
+              harga.splice(i, 1);
+              total.splice(i, 1);
+              diskon.splice(i, 1);
+              bayar.splice(i, 1);
+              showData()
+            }
 
+            var index = []
 
-function hitungtotal(){
+function editdata(i) {
+  document.getElementById('modalnama').value = nama[i]
+  document.getElementById('modalgaming').value = gaming[i]
+  document.getElementById('modaljumlah').value = jumlah[i]
+  document.getElementById('modalharga').value = harga[i]
+  document.getElementById('modaltotal').value = total[i]
+  document.getElementById('modaldiskon').value = diskon[i]
+  document.getElementById('modalbayar').value = bayar[i]
+
+  index.push(i)
+}
+
+function datasimpan() {
+  var simpannama =  document.getElementById('modalnama').value
+  var simpangaming =  document.getElementById('modalgaming').value
+  var simpanjumlah = document.getElementById('modaljumlah').value
+  var simpanharga = document.getElementById('modalharga').value
+  var simpantotal = document.getElementById('modaltotal').value
+  var simpandiskon = document.getElementById('modaldiskon').value
+  var simpanbayar = document.getElementById('modalbayar').value
+
+  nama[index] = simpannama
+  gaming[index] = simpangaming
+  jumlah[index] = simpanjumlah
+  harga[index] = simpanharga
+  total[index] = simpantotal
+  diskon[index] = simpandiskon
+  bayar[index] = simpanbayar
+
+  showData()
+  index.pop()
+}
+
+      function hitungtotal(){
 
 var nama = (document.form.inama.value);
 var tujuan = (document.form.itujuan.value);
@@ -340,7 +464,7 @@ document.form.odiskon.value=eval(diskon);
 document.form.ototal.value=eval(total);
 }
 
-	
+
   </script>
 
 
