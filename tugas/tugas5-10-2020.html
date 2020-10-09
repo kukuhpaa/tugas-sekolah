@@ -29,13 +29,7 @@
     margin-right: 12px;
     margin-top: -40px;
 }
-.jumbotron{
-    height: 500px;
-    background-image: url(img1/flashsale_slider_desk_1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
+
     
 }
 .padding{
@@ -156,27 +150,19 @@ del{
           </div>
         </div>
       </div>
-  </div>
-  
+  </div>  
   <br>  
+  
+<!-- formulir pemesanan -->
+<div class="container mt-4">
+  <h6 class="container-fluid fontbaru p-2 mb-3"  style="background-color:#0865c0; color: #ffffff; height: 35px;">Formulir Pemesanan</h6>
+  <div class="form-gorup">
+      <!-- nama  -->
+    <label for="nama1">Nama Penyewa</label>
+    <input type="text" class="form-control" id="txt_nama1">
 
-
-
-
-
-<!-- formulir pembelian -->
-
-<form class="container"name="form" onchange="hitungtotal()" onsubmit="event.preventDefault()">
-  <h6 class="container-fluid fontbaru p-2 mb-3"  style="background-color:#0865c0; color: #ffffff; height: 35px;">Formulir Penyewaan</h6>
-
-  <div class="form-group">
-    <label for="nama">Nama</label>
-    <input type="text" class="form-control" name="inama" size="25" placeholder="Nama Anda.." id="txt_nama">
-  </div>
-      
-  <label for="gaming" >Gaming Tools</label>
-    
-    <select class="form-control" name="itujuan" id="txt_gaming" >
+    <label for="gaming1" >Gaming Tools</label>
+    <select class="form-control" name="itujuan" id="txt_gaming1" >
       <option value="PC Gaming Intel i9">PC Gaming Intel core i9 with NVIDIA RTX 3090</option>
       <option value="PC Gaming Ryzen 9">PC Gaming Ryzen 9 with NVIDIA RTX 3090</option>
       <option value="Laptop Gaming">Laptop Gaming</option>
@@ -184,9 +170,53 @@ del{
       <option value="PS 5">PS 5</option>
     </select>
     
-  <label for="jumlah">Lama Menyewa</label>
+
+      <!-- button -->
+    <button class="btn btn-primary mt-4" onclick="add1()">Submit</button>
+  </div>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Gaming Device</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody id="tampildata1">
+
+
+
+    </tbody>
+  </table>
+</div>
+
+
+
+<!-- formulir pembelian -->
+<form class="container"name="form" onchange="hitungtotal()" onsubmit="event.preventDefault()">
+  <h6 class="container-fluid fontbaru p-2 mb-3"  style="background-color:#0865c0; color: #ffffff; height: 35px;">Formulir Pembayaran</h6>
+
+  <div class="form-group">
+    <label for="nama">Nama</label>
+    <input type="text" class="form-control" name="inama" size="25" placeholder="Nama Anda.." id="txt_nama" disabled>
+  </div>
+      
+  <label for="gaming" >Gaming Tools</label>
+    
+    <select class="form-control" name="itujuan" id="txt_gaming"disabled>
+      <option value="placeholder">Pilih Device</option>
+      <option value="PC Gaming Intel i9">PC Gaming Intel core i9 with NVIDIA RTX 3090</option>
+      <option value="PC Gaming Ryzen 9">PC Gaming Ryzen 9 with NVIDIA RTX 3090</option>
+      <option value="Laptop Gaming">Laptop Gaming</option>
+      <option value="X-Box Series">X-Box Series</option>
+      <option value="PS 5">PS 5</option>
+    </select>
+    
+  <label for="jumlah" >Lama Menyewa</label>
   
   <select class="form-control" name="ijumlah" id="txt_jumlah" >
+    <option value="waktu">Setting Waktu</option>
     <option value="1jam">1 jam</option>
     <option value="2jam">2 jam</option>
     <option value="3jam">3 jam</option>
@@ -194,13 +224,13 @@ del{
     <option value="5jam">5 jam</option>
   </select>
         
-  <input type="checkbox" name="imamber">Diskon
+  <input type="checkbox" name="imamber">Klik Untuk Pembayaran
     <br>
   <label for="harga">Harga</label>
   <input type="text" class="form-control" size="10" name="otiket"id="txt_harga">
     
   
-  <label for="total">Total Bayar</label>	
+  <label for="total">Bayar</label>	
   <input type="text" class="form-control" size="10" name="osub"id="txt_total">
   
   <label for="diskon">Diskon</label>	
@@ -218,20 +248,17 @@ del{
 <div class="container mt-4">
 <table class="table table-bordered">
   <thead class="table-secondary">
-    <tr>
-      <th style="color: yellow; margin: auto; background-color: gray;" colspan="5">ALERT : PESANAN YANG DI GANTI TIDAK MENDAPATKAN DISKON!, KECUALI PESAN ULANG!</th>
-      <th style="color: yellow; margin: auto; background-color: gray;" colspan="4">ALERT : UANG YANG SUDAH DI BERIKAN TIDAK DAPAT DI KEMBALIKAN!, KECUALI PERANGKAT BELUM DIGUNAKAN!</th>
-    </tr>
     <tr style="background-color:SILVER;">
       <th scope="col">No</th>
       <th scope="col">Nama</th>
-      <th scope="col">gaming Tools</th>
-      <th scope="col">lama sewa</th>
-      <th scope="col">harga</th>
-      <th scope="col">total</th>
-      <th scope="col">diskon</th>
-      <th scope="col">bayar</th>
-      <th scope="col">action</th>
+      <th scope="col">Gaming Tools</th>
+      <th scope="col">Lama sewa</th>
+      <th scope="col">Harga</th>
+      <th scope="col">Total</th>
+      <th scope="col">Diskon</th>
+      <th scope="col">Bayar</th>
+      <th scope="col">Action</th>
+      <th scope="col">Detail</th>
     </tr>
   </thead>
   <tbody id="tampildata">
@@ -241,6 +268,9 @@ del{
 
 
 
+
+<!-- modal -->
+<form class="container"name="form1" onchange="hitungdiskon()" onsubmit="event.preventDefault()">
 <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -275,33 +305,36 @@ del{
           <option value="5 jam">5 jam</option>
         </select>
               
-        <input type="checkbox" name="omamber">Diskon
-          <br>
+
+        <input type="checkbox" name="omamber">Klik Untuk Pembayaran
+        <br>
+
+
         <label for="harga">Harga Perjam</label>
         <input type="text" class="form-control" size="10" name="itiket"id="modalharga">
           
-        
-        <label for="total">Total Bayar</label>	
+       
+        <label for="total">harga</label>	
         <input type="text" class="form-control" size="10" name="isub"id="modaltotal">
         
         <label for="diskon">Diskon</label>	
         <input type="text" class="form-control" size="10" name="idiskon"id="modaldiskon">
         
-        <label for="bayar">Total Bayar</label>
-          
+        <label for="bayar">Total Bayar</label>         
         <input type="text"  class="form-control" name="itotal" id="modalbayar"> 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-          <button type="button" class="btn btn-primary" onclick="datasimpan()" data-dismiss="modal">Ganti</button>
+          <button type="button" class="btn btn-primary" onclick="datasimpan()" data-dismiss="modal">done</button>
         </div>
-      </div>
     </div>
   </div>
-</div>      
+</div>
+</div>
+</form>
 
-<footer>
-  <div class="card text-white bg-dark">
+<footer class="mt-4">
+  <div class="card text-white bg-dark mt-4">
       <div class="card-header">Warnet Gaming</div>
       <div class="card-body">
         <h5 class="card-title text-white bg-dark border-dark">Hubungi</h5>
@@ -313,12 +346,60 @@ del{
       </div>
     </div>
 </footer>
-   
-</div>
-
-  <!-- akhir formulir -->
 
   <script>
+function simpan() {
+        var nama_penyewa = $("#txt_nama1").val();
+        var nama_gaming = $("#txt_gaming1").val();
+
+        $("#txt_nama").val(nama_penyewa);
+        $("#txt_gaming").val(nama_gaming);
+
+    }
+
+
+        var nama1 = []
+        var gaming1 = []
+        var tampil1 = document.getElementById('tampildata1')
+
+        function showData1() {
+            tampil1.innerHTML = ""
+
+            for(i = 0; i<nama1.length; i++){
+                nodata1 = i+1
+                tampil1.innerHTML += "<tr>"+
+                "<th>"+nodata1+"</th>"+
+                "<td>"+nama1[i]+"</td>"+
+                "<td>"+gaming1[i]+"</td>"+
+                "<td>"+
+                "<button class='btn btn-danger' onclick='deleting()'>Hapus</button>"+
+                "<button class='btn btn-warning' data-toggle='' data-target='#' onclick='simpan(" + i +
+                  ")'>Bayar</button>" +   
+                "</td>"+
+                "</tr>"
+            }
+        }     
+      showData1 ()
+      function add1() {
+        var namabaru1 = document.getElementById('txt_nama1').value
+        var gamingbaru1 = document.getElementById('txt_gaming1').value
+        
+        nama1.push(namabaru1)
+        gaming1.push(gamingbaru1)
+        showData1()
+      }    
+      function deleting() {
+        var namabaru1 = document.getElementById('txt_nama1').value
+        var gamingbaru1 = document.getElementById('txt_gaming1').value
+        
+        nama1.pop(namabaru1)
+        gaming1.pop(gamingbaru1)
+
+        showData1()
+      }
+
+
+
         var nama= ["kukuh"]
         var gaming = ["PS 5"]
         var jumlah = ["1 jam"]
@@ -345,12 +426,18 @@ del{
                 "<td>"+bayar[i]+"</td>"+
                 "<td>" +
                   "<button class='btn btn-warning' data-toggle='modal' data-target='#modal' onclick='editdata(" + i +
-                  ")'>Edit</button>" +
+                  ")'>Edit</button>" +                
                   "<button class='btn-danger btn' href='#' onclick='hapusdata(" + i + ")'>Hapus</button>" +
-                  "</td>" +
+                "</td>" +
+                "<td>" +                 
+                  "<button class='btn btn-warning' data-toggle='modal' data-target='#modal' onclick='editdata(" + i +
+                  ")'>Detail</button>" +                 
+                "</td>" +
                 "</tr>"
             }
         }     
+
+       
       showData ()
       function add() {
         var namabaru = document.getElementById('txt_nama').value
@@ -416,8 +503,9 @@ function datasimpan() {
   index.pop()
 }
 
-      function hitungtotal(){
 
+
+function hitungtotal(){
 var nama = (document.form.inama.value);
 var tujuan = (document.form.itujuan.value);
 var jumlahsewa = parseFloat (document.form.ijumlah.value);
@@ -462,6 +550,53 @@ document.form.otiket.value=eval(ht);
 document.form.osub.value=eval(sub);
 document.form.odiskon.value=eval(diskon);
 document.form.ototal.value=eval(total);
+}
+
+function hitungdiskon(){
+var nama1 = (document.form1.onama.value);
+var tujuan1 = (document.form1.otujuan.value);
+var jumlahsewa1 = parseFloat (document.form1.ojumlah.value);
+var ht1 = 0.0 ;
+var sub1 = 0.0;
+var diskon1 = 0.0;
+var total1 = 0.0;
+if (tujuan1 == "PC Gaming Intel i9") {
+
+    ht1 = 15000;
+}
+else if(tujuan1 == "PC Gaming Ryzen 9")
+{
+    ht1 = 15000;
+}
+else if(tujuan1 == "X-Box Series")
+{
+    ht1 = 30000;
+}
+else if(tujuan1 == "PS 5")
+{
+    ht1 = 30000;
+}
+else if(tujuan1 == "Laptop Gaming")
+{
+    ht1 = 15000;
+}
+
+
+sub1 = jumlahsewa1*ht1;
+
+if (document.form1.omamber.checked == true) 
+{
+    diskon1 = 0.20 * sub1;
+}
+else
+{
+    diskon1=0.15;
+}
+total1 = sub1 - diskon1;
+document.form1.itiket.value=eval(ht1);
+document.form1.isub.value=eval(sub1);
+document.form1.idiskon.value=eval(diskon1);
+document.form1.itotal.value=eval(total1);
 }
 
 
