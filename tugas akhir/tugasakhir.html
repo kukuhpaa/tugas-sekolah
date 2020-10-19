@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Jual Barang</title>
+    <style>
+         .jumbotron{
+             height: 450px;
+             background-image: url(ak.jpg);
+             background-size: cover;
+             background-position-y:-133px ;
+        }
+        .judullist{
+             height: 40px;
+        }
+    </style>
+    
+    
+  </head>
+  <body style="background-color: silver;" >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Guns Store Indonesia</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link mt-1" href="#">Tentang Kami</a>
+            <a class="nav-link mt-1" href="#">Lokasi</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4 text-white">Guns Store</h1>
+        <p class="lead text-white">This is a legal store.</p>
+      </div>
+  </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="judullist bg-dark rounded text-center text-white pt-2"> List Item</div>
+
+                 <div class="listkeranjang" id="listkeranjang">
+                 
+                 </div>   
+                 <div class="form-group">
+                  <label for="nama1">Nama</label>
+                  <input type="text" class="form-control" name="inama" size="20" placeholder="Nama Anda.." id="txt_nama">
+                </div>
+                    <table width="100%">                     
+                        <tbody> 
+                              <tr>
+                                <td>Nama Barang</td>
+                                <td><span id="nama"></span></td>
+                            </tr>                        
+                            <tr>
+                                <td>Discount (10%)</td>
+                                <td> Rp. <span id="discount"></span></td>
+                            </tr>
+                            <tr>
+                                <td>PPN (10%)</td>
+                                <td> Rp. <span id="pajak"></span></td>
+                            </tr>
+                            <tr class="bg-dark text-white">
+                                <td>Total Bayar</td>
+                                <td> Rp. <span id="totalbayar"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   
+                    <button type="button" class="btn btn-primary mt-3 btn-block" onclick="bayardisini()">Bayar</button>
+
+                    
+            </div>
+                <div class="col-8" id="listproduk">
+                  
+                </div>
+
+                </div>
+        </div>
+    </div>
+
+
+   
+
+
+
+    <footer>
+      <div class="card text-white bg-dark mt-4">
+          <div class="card-header">WWW.GunsStore.Com</div>
+          <div class="card-body">
+            <h5 class="card-title text-white bg-dark border-dark">Hubungi</h5>
+            <ul>
+            <li>Guns Store</li>
+            <li><a class="" href="https://www.instagram.com/kukuhpradypta.a.a"><img src="ig.jpg" width="20" height="20" alt="" class="rounded mr-1">INSTAGRAM</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+
+
+
+  <script>
+      var namabarang = ['AK-47','MA4A1','M24','Desert Eagle','Glock-18','Win Chaster'] 
+      var hargabarang = [10000000,10000000,15000000,5000000,4000000,8000000]
+      var gambarbarang = ["ak47.jpg","MA4A1.JPG","m24.jpg","deagle.jpg","pistol.jpg","winchaster.jpg"]
+    
+      var listproduk = document.getElementById('listproduk')
+      var listkeranjang = document.getElementById('listkeranjang')
+
+      var tampilnama = document.getElementById('nama')
+      var tampildiscount = document.getElementById('discount')
+      var tampilpajak = document.getElementById('pajak')
+      var tampiltotalbayar = document.getElementById('totalbayar')
+
+      var namabarang_keranjang = []
+      var hargabarang_keranjang = []
+
+      function showlistproduk() {
+        listproduk.innerHTML =''
+        for (let i = 0; i < namabarang.length; i++) {
+          listproduk.innerHTML +='<div class="card float-left mr-3 mb-3 bg-dark text-white" style="width: 14rem;">'+
+                        '<img src="'+gambarbarang[i]+'"class="card-img-top" height="150ram" alt="...">'+
+                        '<div class="card-body">'+
+                          '<h5 class="card-title">'+namabarang[i]+'</h5>'+
+                          '<p class="card-text">Rp.'+hargabarang[i]+'</p>'+
+                          '<a href="#" class="btn btn-primary" onclick="addlistitem('+i+')" >Beli</a>'+
+                        '</div>'+
+                      '</div>' 
+        }
+      }
+      showlistproduk()
+
+      function addlistitem(id) {
+        namabarang_keranjang.push(namabarang[id])
+        hargabarang_keranjang.push(hargabarang[id])
+
+
+        showlistkeranjang()
+      }
+
+      function showlistkeranjang() {
+        listkeranjang.innerHTML=''
+        
+        var nama = 0
+        var discount = 0
+        var pajak = 0
+        var hargatotal = 0
+        var totalbayar = 0
+
+        for (let i = 0; i < namabarang_keranjang.length; i++) {
+         listkeranjang.innerHTML +=' <div class="card mt-3 mb-3 bg-dark text-white" style="width: 21,5rem;height: 12rem;">'+
+                    '<div class="card-body">'+
+                    '<h5 class="card-title">'+namabarang_keranjang[i]+'</h5>'+
+                    '<p class="card-text">Rp.'+hargabarang_keranjang[i]+'</p>'+
+                    '<p>Qty: 1</p>'+
+                    '<a href="#" class="btn btn-danger float-right" Onclick="deleteitem('+ i +')">Hapus</a>'+
+                   '</div>'+
+                '</div>'
+          
+
+          hargatotal = hargabarang_keranjang[i]+hargatotal
+          nama = namabarang_keranjang[i]
+         
+
+
+          if(totalbayar > 100){
+            discount = totalbayar*0.2
+          }else{
+            discount = 0;
+          }
+          totalbayar = hargatotal-discount
+
+          pajak = totalbayar*0.1
+
+          var totalbelanja = totalbayar+pajak
+          tampilpajak.innerHTML = pajak
+          tampildiscount.innerHTML = discount
+          tampiltotalbayar.innerHTML = totalbelanja
+          tampilnama.innerHTML = namabarang_keranjang 
+
+        }
+      }
+
+
+      function deleteitem(id){
+
+        namabarang_keranjang.splice(id,1)
+        hargabarang_keranjang.splice(id,1)
+
+        showlistkeranjang()
+      }
+
+
+     
+  </script>
+    
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
